@@ -2,10 +2,10 @@
 respins = 5
 
 # The probability distribution of the items
-prob_dash       = 0.28
+prob_dash       = 0.27
 prob_coin       = 0.3
 prob_coin_stack = 0.1
-prob_double     = 0.09
+prob_double     = 0.1
 prob_snake      = 0.1
 prob_fishnet    = 0.04
 prob_clover     = 0.01
