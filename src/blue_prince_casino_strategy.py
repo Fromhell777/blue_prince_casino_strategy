@@ -30,24 +30,28 @@ def calculate_payout(state):
   clovers     = state.count("clover")
   crowns      = state.count("crown")
 
-  if crowns == 4:
-      return 100
-  elif coins == 4:
-      return 5
-  elif coin_stacks == 4:
-      return 15
-  elif snakes > 0:
-    if "fishnet" in state:
-      return snakes * 3 * 2**times2
-    else:
-      return 0
-
   current_winnings = 0
-  current_winnings += clovers * 10
+
+  if crowns == 4:
+    current_winnings += 100
+
+  if coins == 4:
+    current_winnings += 5
+
+  if coin_stacks == 4:
+    current_winnings += 15
+
   if coins == 3:
     current_winnings += 3
+
   if coin_stacks == 3:
     current_winnings += 9
+
+  current_winnings += clovers * 10
+  current_winnings += snakes * 3
+
+  if (snakes > 0) and ("fishnet" not in state):
+    current_winnings = 0
 
   return current_winnings * 2**times2
 
